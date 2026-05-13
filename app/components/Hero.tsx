@@ -16,6 +16,7 @@ export default function Hero() {
           src="/images/hero-right.png"
           alt="Bouledogue français avec mockup MK Biscuit"
           fill
+          sizes="60vw"
           priority
           className="object-contain object-center"
         />

@@ -41,13 +41,14 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative w-full overflow-hidden bg-linear-to-b from-biscuit-purple/15 to-biscuit-purple/5 px-6 py-20 md:px-10 lg:px-20 xl:px-28"
+      className="relative w-full overflow-hidden bg-linear-to-b from-biscuit-purple/15 to-[#f4f6fa] px-6 py-20 md:px-10 lg:px-20 xl:px-28"
     >
       <div className="pointer-events-none absolute -left-20 top-24 h-56 w-56 rounded-full bg-biscuit-purple/10" />
-      <div className="pointer-events-none absolute -right-24 top-20 h-64 w-64 rounded-full bg-biscuit-mint/30" />
+      <div className="pointer-events-none -z-10 absolute -right-24 top-20 h-64 w-64 rounded-full bg-biscuit-mint/30" />
       <div className="pointer-events-none absolute left-1/4 bottom-10 h-32 w-32 rounded-4xl bg-biscuit-yellow/20 rotate-12" />
       <div className="pointer-events-none absolute right-1/3 bottom-8 h-20 w-20 rounded-full bg-biscuit-pink/15" />
-      <div className="mx-auto max-w-5xl text-center">
+
+      <div className="mx-auto max-w-5xl z-10 text-center">
         <p className="mb-3 text-lg font-black inline-flex justify-center items-center gap-2 uppercase tracking-wide text-biscuit-purple">
           Pensé pour vous et votre chien
           <Heart className="h-6 w-6 fill-current" />
