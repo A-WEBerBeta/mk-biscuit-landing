@@ -1,14 +1,29 @@
 import Image from "next/image";
+import Link from "next/link";
+
 import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
+
+const footerLinks = {
+  produit: [
+    { label: "Fonctionnalités", href: "/features" },
+    { label: "Tarifs", href: "/pricing" },
+    { label: "Télécharger", href: "/#download" },
+  ],
+  ressources: [
+    { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
+  ],
+};
 
 export default function Footer() {
   return (
     <footer className="w-full bg-biscuit-cream px-6 py-12 md:px-10 lg:px-20 xl:px-32">
       <div className="mx-auto grid max-w-425 gap-10 border-t border-biscuit-dark/10 pt-10 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
+        {/* BRAND */}
         <div>
-          <a href="#" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/images/logo.png"
+              src="/images/logo-biscuit.png"
               alt="Logo MK Biscuit"
               width={52}
               height={52}
@@ -18,7 +33,7 @@ export default function Footer() {
             <span className="font-display text-2xl font-black text-biscuit-dark">
               MK Biscuit
             </span>
-          </a>
+          </Link>
 
           <p className="mt-4 max-w-sm leading-7 text-biscuit-dark/60">
             Le quotidien de ton chien, organisé avec amour, biscuits et zéro
@@ -26,12 +41,13 @@ export default function Footer() {
           </p>
         </div>
 
-        <FooterColumn
-          title="Produit"
-          links={["Fonctionnalités", "L’app", "Télécharger"]}
-        />
-        <FooterColumn title="Ressources" links={["FAQ", "Blog", "Guides"]} />
+        {/* PRODUIT */}
+        <FooterColumn title="Produit" links={footerLinks.produit} />
 
+        {/* RESSOURCES */}
+        <FooterColumn title="Ressources" links={footerLinks.ressources} />
+
+        {/* SOCIALS */}
         <div>
           <h3 className="font-display text-xl font-black text-biscuit-dark">
             Suivez-nous
@@ -44,16 +60,16 @@ export default function Footer() {
                   key={index}
                   href="#"
                   className="
-        grid h-11 w-11 place-items-center
-        rounded-full
-        bg-white
-        text-biscuit-pink
-        shadow-md
-        transition
-        hover:-translate-y-1
-        hover:bg-biscuit-pink
-        hover:text-white
-      "
+                    grid h-11 w-11 place-items-center
+                    rounded-full
+                    bg-white
+                    text-biscuit-pink
+                    shadow-md
+                    transition
+                    hover:-translate-y-1
+                    hover:bg-biscuit-pink
+                    hover:text-white
+                  "
                 >
                   <Icon className="h-5 w-5" />
                 </a>
@@ -70,7 +86,16 @@ export default function Footer() {
   );
 }
 
-function FooterColumn({ title, links }: { title: string; links: string[] }) {
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: {
+    label: string;
+    href: string;
+  }[];
+}) {
   return (
     <div>
       <h3 className="font-display text-xl font-black text-biscuit-dark">
@@ -79,13 +104,13 @@ function FooterColumn({ title, links }: { title: string; links: string[] }) {
 
       <ul className="mt-4 space-y-3">
         {links.map((link) => (
-          <li key={link}>
-            <a
-              href="#"
+          <li key={link.label}>
+            <Link
+              href={link.href}
               className="font-semibold text-biscuit-dark/60 transition hover:text-biscuit-pink"
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>

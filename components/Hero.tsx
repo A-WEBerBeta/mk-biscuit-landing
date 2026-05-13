@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden bg-biscuit-cream">
+    <section className="relative w-full pb-20 overflow-hidden bg-biscuit-cream">
       {/* VISUEL DROITE */}
       <div className="pointer-events-none absolute right-0 top-1/2 hidden h-[78vh] w-[60vw] -translate-y-1/2 lg:block">
         <Image

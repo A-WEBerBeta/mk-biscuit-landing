@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const links = [
-  { label: "Fonctionnalités", href: "#features" },
-  { label: "L’app", href: "#app" },
-  { label: "Avis", href: "#testimonials" },
-  { label: "Télécharger", href: "#download" },
+  { label: "Accueil", href: "/" },
+  { label: "Fonctionnalités", href: "/features" },
+  { label: "Tarifs", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -24,14 +26,14 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full bg-biscuit-cream ${
+      className={`sticky top-0 z-50 w-full bg-biscuit-cream transition-all duration-150 ${
         scrolled ? "bg-transparent backdrop-blur-xl" : ""
       }`}
     >
-      <div className="flex h-20 w-full items-center justify-between px-6 md:px-10 lg:px-20 xl:px-32">
-        <a href="#" className="flex items-center gap-3">
+      <div className="mx-auto flex h-20 w-full items-center justify-between px-6 md:px-10 lg:px-20 xl:px-32">
+        <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-biscuit.png"
             alt="Logo MK Biscuit"
             width={52}
             height={52}
@@ -42,26 +44,26 @@ export default function Navbar() {
           <span className="font-display text-2xl font-black text-biscuit-dark">
             MK Biscuit
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-bold text-biscuit-dark/65 lg:flex">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="transition hover:text-biscuit-pink"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a
-          href="#download"
+        <Link
+          href="/pricing"
           className="hidden rounded-full bg-biscuit-yellow px-6 py-3 text-sm font-black text-biscuit-dark shadow-lg transition hover:-translate-y-0.5 md:inline-flex"
         >
-          Créer le carnet de mon chien
-        </a>
+          Commencer gratuitement
+        </Link>
       </div>
     </header>
   );
